@@ -1,0 +1,19 @@
+import { describe, it, expect } from 'vitest';
+import { cartDeliveryOptionsTransformRun } from './cart_delivery_options_transform_run';
+
+/**
+ * @typedef {import("../generated/api").CartDeliveryOptionsTransformRunResult} CartDeliveryOptionsTransformRunResult
+ */
+
+describe('delivery customization function', () => {
+  it('returns no operations without configuration', () => {
+    const result = cartDeliveryOptionsTransformRun({
+      deliveryCustomization: {
+        metafield: null
+      }
+    });
+    const expected = /** @type {CartDeliveryOptionsTransformRunResult} */ ({ operations: [] });
+
+    expect(result).toEqual(expected);
+  });
+});

@@ -1,0 +1,34 @@
+query CartDeliveryOptionsTransformRunInput {
+  cart {
+    attribute(key: "ab_test_variant") {
+      value
+    }
+    deliveryGroups {
+      id
+      cartLines {
+        id
+        merchandise {
+          __typename
+          ... on ProductVariant {
+            metafield(namespace: "custom", key: "warehouse") {
+              value
+            }
+            product {
+              metafield(namespace: "custom", key: "warehouse") {
+                value
+              }
+            }
+          }
+        }
+      }
+      deliveryOptions {
+        handle
+        title
+      }
+      deliveryAddress {
+        countryCode
+        city
+      }
+    }
+  }
+}

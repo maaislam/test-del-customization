@@ -1,0 +1,24 @@
+api_version = "2025-07"
+
+[[extensions]]
+name = "t:name"
+handle = "hide-del-options"
+
+uid = "08f41bb6-25dd-1ed5-cf5e-8226b2a929ff1848e471"
+
+type = "function"
+
+description = "t:description"
+
+  [[extensions.targeting]]
+  target = "cart.delivery-options.transform.run"
+  input_query = "src/cart_delivery_options_transform_run.graphql"
+  export = "cart-delivery-options-transform-run"
+
+  [extensions.build]
+  command = ""
+  path = "dist/function.wasm"
+
+  [extensions.ui.paths]
+  create = "/"
+  details = "/"
